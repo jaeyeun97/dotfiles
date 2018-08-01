@@ -23,3 +23,5 @@ except:
         i3.command('focus '+msg[1])
     elif msg[0] == 'resize':
         i3.command(RESIZE_I3[msg[1]])
+    # elif msg[0] == 'move':
+    #     i3.command('move '+msg[1])

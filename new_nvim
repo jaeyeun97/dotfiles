@@ -1,3 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
-eval "$($HOME/.config/base16-shell/profile_helper.sh)" && /usr/bin/nvim "$@"
+eval "$($HOME/.config/base16-shell/profile_helper.sh)"
+/usr/bin/nvim $@
