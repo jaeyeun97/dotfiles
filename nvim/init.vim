@@ -31,8 +31,8 @@ set shiftwidth=4
 set softtabstop=4
 set smarttab
 
-let g:python_host_prog = '/home/jaeyeun/.virtualenvs/neovim2/bin/python2' 
-let g:python3_host_prog = '/home/jaeyeun/.virtualenvs/neovim/bin/python3' 
+let g:python_host_prog = '/home/jyy24/.virtualenvs/neovim2/bin/python2' 
+let g:python3_host_prog = '/home/jyy24/.virtualenvs/neovim/bin/python3' 
 let g:deoplete#enable_at_startup = 1
 let deoplete#sources#jedi#show_docstring = 1
 
@@ -50,24 +50,6 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-
-function! RegisterNvimI3Connection()
-    if strlen($WINDOWID) != 0
-        silent exec '!i3_nvim_focus_client.py register '. $WINDOWID . ' ' . shellescape($NVIM_LISTEN_ADDRESS)
-        let g:i3_nvim_connection = 1
-    else
-        let g:i3_nvim_connection = 0
-    endif
-endfunction
-
-function! UnregisterNvimI3Connection()
-    if g:i3_nvim_connection
-        silent exec '!i3_nvim_focus_client.py unregister '. $WINDOWID
-    endif
-endfunction
-
-call RegisterNvimI3Connection()
-autocmd VimLeave * call UnregisterNvimI3Connection()
 
 nmap <F8> :TagbarToggle<CR>
 
