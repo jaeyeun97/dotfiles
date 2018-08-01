@@ -15,7 +15,8 @@ set $i3_nvim $HOME/.local/bin/i3_nvim_focus_client.py
 new_window pixel 1
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Noto Sans CJK KR Regular 10
+# font pango:Source Code Pro Regular 10
+font pango:Source Han Sans KR Regular 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -27,16 +28,16 @@ font pango:Noto Sans CJK KR Regular 10
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
-exec --no-startup-id nitrogen --restore 
+exec --no-startup-id $HOME/.local/bin/i3_nvim_focus_server.py
+exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
-exec --no-startup-id pa-applet &
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite -d $(xcwd)
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -78,10 +79,10 @@ bindsym Control+k exec "$i3_nvim focus up"
 bindsym Control+l exec "$i3_nvim focus right"
 
 mode "resize" {
-        bindsym $mod+h exec "$i3_nvim focus left"
-        bindsym $mod+j exec "$i3_nvim focus down"
-        bindsym $mod+k exec "$i3_nvim focus up"
-        bindsym $mod+l exec "$i3_nvim focus right"
+        bindsym Control+h exec "$i3_nvim focus left"
+        bindsym Control+j exec "$i3_nvim focus down"
+        bindsym Control+k exec "$i3_nvim focus up"
+        bindsym Control+l exec "$i3_nvim focus right"
         bindsym h exec "$i3_nvim resize h"
         bindsym j exec "$i3_nvim resize j"
         bindsym k exec "$i3_nvim resize k"
@@ -210,6 +211,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+		font pango:Inconsolata Regular 12
 		status_command i3status
 		position top
 }
