@@ -79,10 +79,7 @@ class NvimWatcher:
                         self.i3.command('focus ' + msg[1])
                 elif msg[0] == 'resize':
                     if nvim:
-                        if ((msg[1] == 'j' or msg[1] == 'k')
-                                and (nvim.eval('CountHSplits()') > 1)
-                                or (msg[1] == 'h' or msg[1] == 'l')
-                                and (nvim.eval('CountVSplits()') > 1)):
+                        if ((msg[1] == 'j' or msg[1] == 'k') and (nvim.eval('CountHSplits()') > 1) or (msg[1] == 'h' or msg[1] == 'l') and (nvim.eval('CountVSplits()') > 1)):
                             nvim.command('4wincmd ' + RESIZE_VIM[msg[1]])
                         else:
                             self.i3.command(RESIZE_I3[msg[1]])
