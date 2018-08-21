@@ -169,6 +169,8 @@ for_window [class="Wine"] floating enable
 for_window [title="KakaoTalkEdgeWnd"] kill
 for_window [title="KakaoTalkShadowWnd"] kill
 for_window [class="uk.ac.cam.cl.id.group18.task3.Main"] floating enable
+for_window [class="Godot_Engine"] floating enable
+for_window [class="Godot_ProjectList"] floating enable
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
