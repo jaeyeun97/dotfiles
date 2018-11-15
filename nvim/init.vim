@@ -50,8 +50,8 @@ set softtabstop=4
 set smarttab
 set hidden
 
-let g:python_host_prog = '/home/jyy24/.virtualenvs/neovim2/bin/python2' 
-let g:python3_host_prog = '/home/jyy24/.virtualenvs/neovim/bin/python3' 
+let g:python_host_prog = '/home/jaeyeun/.virtualenvs/neovim2/bin/python2' 
+let g:python3_host_prog = '/home/jaeyeun/.virtualenvs/neovim/bin/python3' 
 
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])

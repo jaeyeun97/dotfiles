@@ -1,0 +1,101 @@
+DEBUG --> { jsonrpc: '2.0',
+  method: 'initialize',
+  params:
+   { capabilities:
+      { textDocument: { completion: { completionItem: { snippetSupport: true } } },
+        workspace:
+         { applyEdit: true,
+           didChangeWatchedFiles: { dynamicRegistration: true } } },
+     processId: 1877,
+     rootPath: '/etc/polkit-1/rules.d',
+     rootUri: 'file:///etc/polkit-1/rules.d',
+     trace: 'off' },
+  id: 9 }
+DEBUG <-- { jsonrpc: '2.0',
+  id: 9,
+  result:
+   { capabilities:
+      { textDocumentSync: 1,
+        hoverProvider: true,
+        signatureHelpProvider: { triggerCharacters: [ '(', ',' ] },
+        definitionProvider: true,
+        typeDefinitionProvider: true,
+        referencesProvider: true,
+        documentSymbolProvider: true,
+        workspaceSymbolProvider: true,
+        xworkspaceReferencesProvider: true,
+        xdefinitionProvider: true,
+        xdependenciesProvider: true,
+        completionProvider: { resolveProvider: true, triggerCharacters: [ '.' ] },
+        codeActionProvider: true,
+        renameProvider: true,
+        executeCommandProvider: { commands: [] },
+        xpackagesProvider: true } } }
+DEBUG --> { jsonrpc: '2.0', method: 'initialized', params: {} }
+DEBUG --> { jsonrpc: '2.0',
+  method: 'textDocument/didOpen',
+  params:
+   { textDocument:
+      { languageId: 'javascript',
+        text:
+         '\n\n\n/* Allow users in wheel group to use blueman feature requiring root without authentication */\npolkit.addRule(function(action, subject) {\n    if ((action.id == "org.blueman.network.setup" ||\n         action.id == "org.blueman.dhcp.client" ||\n         action.id == "org.blueman.rfkill.setstate" ||\n         action.id == "org.blueman.pppd.pppconnect") &&\n        subject.isInGroup("wheel")) {\n\n        return polkit.Result.YES;\n    }\n});\n',
+        uri: 'file:///etc/polkit-1/rules.d/51-blueman.rules',
+        version: 0 } } }
+ERROR Handle textDocumentDidOpen: { [Error: ENOENT: no such file or directory, open '/etc/polkit-1/rules.d/51-blueman.rules']
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/etc/polkit-1/rules.d/51-blueman.rules' }
+DEBUG --> { jsonrpc: '2.0',
+  method: 'textDocument/didChange',
+  params:
+   { contentChanges:
+      [ { text:
+           '\n\n/* Allow users in wheel group to use blueman feature requiring root without authentication */\npolkit.addRule(function(action, subject) {\n    if ((action.id == "org.blueman.network.setup" ||\n         action.id == "org.blueman.dhcp.client" ||\n         action.id == "org.blueman.rfkill.setstate" ||\n         action.id == "org.blueman.pppd.pppconnect") &&\n        subject.isInGroup("wheel")) {\n\n        return polkit.Result.YES;\n    }\n});\n' } ],
+     textDocument:
+      { uri: 'file:///etc/polkit-1/rules.d/51-blueman.rules',
+        version: 1 } } }
+DEBUG --> { jsonrpc: '2.0',
+  method: 'textDocument/didChange',
+  params:
+   { contentChanges:
+      [ { text:
+           '\n/* Allow users in wheel group to use blueman feature requiring root without authentication */\npolkit.addRule(function(action, subject) {\n    if ((action.id == "org.blueman.network.setup" ||\n         action.id == "org.blueman.dhcp.client" ||\n         action.id == "org.blueman.rfkill.setstate" ||\n         action.id == "org.blueman.pppd.pppconnect") &&\n        subject.isInGroup("wheel")) {\n\n        return polkit.Result.YES;\n    }\n});\n' } ],
+     textDocument:
+      { uri: 'file:///etc/polkit-1/rules.d/51-blueman.rules',
+        version: 2 } } }
+DEBUG --> { jsonrpc: '2.0',
+  method: 'textDocument/didChange',
+  params:
+   { contentChanges:
+      [ { text:
+           '/* Allow users in wheel group to use blueman feature requiring root without authentication */\npolkit.addRule(function(action, subject) {\n    if ((action.id == "org.blueman.network.setup" ||\n         action.id == "org.blueman.dhcp.client" ||\n         action.id == "org.blueman.rfkill.setstate" ||\n         action.id == "org.blueman.pppd.pppconnect") &&\n        subject.isInGroup("wheel")) {\n\n        return polkit.Result.YES;\n    }\n});\n' } ],
+     textDocument:
+      { uri: 'file:///etc/polkit-1/rules.d/51-blueman.rules',
+        version: 3 } } }
+ERROR Handle textDocumentDidChange: Error: Could not find file: '/etc/polkit-1/rules.d/51-blueman.rules'.
+    at getValidSourceFile (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/node_modules/typescript/lib/typescript.js:103163:23)
+    at Object.getSyntacticDiagnostics (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/node_modules/typescript/lib/typescript.js:103334:52)
+    at TypeScriptService._publishDiagnostics (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/typescript-service.js:1245:14)
+    at TypeScriptService.<anonymous> (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/typescript-service.js:1229:18)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/typescript-service.js:4:58)
+ERROR Handle textDocumentDidChange: Error: Could not find file: '/etc/polkit-1/rules.d/51-blueman.rules'.
+    at getValidSourceFile (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/node_modules/typescript/lib/typescript.js:103163:23)
+    at Object.getSyntacticDiagnostics (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/node_modules/typescript/lib/typescript.js:103334:52)
+    at TypeScriptService._publishDiagnostics (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/typescript-service.js:1245:14)
+    at TypeScriptService.<anonymous> (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/typescript-service.js:1229:18)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/typescript-service.js:4:58)
+ERROR Handle textDocumentDidChange: Error: Could not find file: '/etc/polkit-1/rules.d/51-blueman.rules'.
+    at getValidSourceFile (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/node_modules/typescript/lib/typescript.js:103163:23)
+    at Object.getSyntacticDiagnostics (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/node_modules/typescript/lib/typescript.js:103334:52)
+    at TypeScriptService._publishDiagnostics (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/typescript-service.js:1245:14)
+    at TypeScriptService.<anonymous> (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/typescript-service.js:1229:18)
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/jaeyeun/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/typescript-service.js:4:58)
+DEBUG --> { jsonrpc: '2.0',
+  method: 'textDocument/didSave',
+  params:
+   { textDocument: { uri: 'file:///etc/polkit-1/rules.d/51-blueman.rules' } } }
+DEBUG --> { jsonrpc: '2.0', method: 'exit', params: null }
